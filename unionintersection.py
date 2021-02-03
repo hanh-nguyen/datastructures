@@ -92,7 +92,7 @@ def intersection(llist_1, llist_2):
     return intersectll
 
 """Run time: 
-Worst case complexity: O((a+b)**2)
+Worst case complexity: O(min(a,b)**2) 
 Algorithm:
 Let call the lengths of llist_1 and llist_2 are a & b
 initialize an empty dictionary: O(1)

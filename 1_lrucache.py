@@ -1,15 +1,16 @@
+import datetime
 class LRU_Cache(object):
 
     def __init__(self, capacity):
         # Initialize class variables
         self.capacity = capacity
         self.storage = dict() # store items
-        self.usage = dict() # track usage time
+        self.recency = dict() # track usage time
 
     def get(self, key):
         # Retrieve item from provided key. Return -1 if nonexistent. 
         if key in self.storage:
-            self.usage[key] += 1 
+            self.recency[key] = datetime.datetime.now()
             return self.storage[key]
         return -1
 
@@ -17,11 +18,11 @@ class LRU_Cache(object):
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item. 
         if key not in self.storage:
             if len(self.storage) >= self.capacity:
-                least_used = min(self.usage, key=self.usage.get)
+                least_used = min(self.recency, key=self.recency.get)
                 del self.storage[least_used]
-                del self.usage[least_used]
+                del self.recency[least_used]
             self.storage[key] = value
-            self.usage[key] = 1
+            self.recency[key] = datetime.datetime.now()
 
 # Test
 our_cache = LRU_Cache(5)

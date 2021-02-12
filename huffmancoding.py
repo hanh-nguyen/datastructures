@@ -155,16 +155,11 @@ class Heap:
                 s += str(i) + " -> "
         return s
 
-if __name__ == "__main__":
-    
-    codes = {}
+def testing(example):
+    print ("The size of the data is: {}\n".format(sys.getsizeof(example)))
+    print ("The content of the data is: {}\n".format(example))
 
-    a_great_sentence = "The bird is the word"
-    # a_great_sentence = "AAAAAAABBBCCCCCCCDDEEEEEE"
-    print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
-    print ("The content of the data is: {}\n".format(a_great_sentence))
-
-    encoded_data, tree = huffman_encoding(a_great_sentence)
+    encoded_data, tree = huffman_encoding(example)
 
     print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
     print ("The content of the encoded data is: {}\n".format(encoded_data))
@@ -173,3 +168,13 @@ if __name__ == "__main__":
 
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print ("The content of the encoded data is: {}\n".format(decoded_data))
+
+if __name__ == "__main__":
+    example = "The bird is the word"
+    testing(example)
+
+    example = "This project is hard!"
+    testing(example)
+
+    example = "((ABCXYZ)"
+    testing(example)

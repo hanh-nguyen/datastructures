@@ -43,8 +43,6 @@ class LinkedList:
         return size
 
 def union(llist_1, llist_2):
-    if llist_1.size() == 0: return llist_2
-    if llist_2.size() == 0: return llist_1
     union_set = set()
     node_1 = llist_1.head
     while node_1:
@@ -74,8 +72,6 @@ loop through the set, which is O(a+b)
 """
 
 def intersection(llist_1, llist_2):
-    if llist_1.size() == 0: return None
-    if llist_2.size() == 0: return None
     intersect = defaultdict(list)
     node_1 = llist_1.head
     while node_1:
@@ -105,7 +101,7 @@ loop through the dictionary, which is O(min(a,b))
     if we design the append method to add item at the linked list head, the run time would be just O(min(a,b)) 
 """
 
-# Test case 1
+# Test 1
 
 linked_list_1 = LinkedList()
 linked_list_2 = LinkedList()
@@ -120,9 +116,12 @@ for i in element_2:
     linked_list_2.append(i)
 
 print (union(linked_list_1,linked_list_2))
+# 32 -> 65 -> 2 -> 35 -> 3 -> 4 -> 6 -> 1 -> 9 -> 11 -> 21 -> 
 print (intersection(linked_list_1,linked_list_2))
+# 4 -> 21 -> 
 
-# Test case 2
+
+# Test 2
 
 linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
@@ -137,4 +136,21 @@ for i in element_2:
     linked_list_4.append(i)
 
 print (union(linked_list_3,linked_list_4))
+# 65 -> 2 -> 35 -> 3 -> 4 -> 6 -> 1 -> 7 -> 8 -> 9 -> 11 -> 21 -> 23 -> 
 print (intersection(linked_list_3,linked_list_4))
+# Nothing printed because they do not overlap
+
+# Test 3
+
+linked_list_5 = LinkedList()
+linked_list_6 = LinkedList()
+
+element_1 = [1,11,21,1]
+
+for i in element_1:
+    linked_list_5.append(i)
+
+print (union(linked_list_5,linked_list_6))
+# 1 -> 11 -> 21 ->
+print (intersection(linked_list_5,linked_list_6))
+# Nothing printed because they do not overlap

@@ -28,6 +28,9 @@ def is_user_in_group(user, group):
       user(str): user name/id
       group(class:Group): group to check user membership against
     """
+    if not isinstance(group, Group):
+        print (f"{group} is not the group")
+        return
     if user in group.users:
         return True
     for sub_group in group.groups:
@@ -45,7 +48,13 @@ sub_child.add_user(sub_child_user)
 
 child.add_group(sub_child)
 parent.add_group(child)
-print(is_user_in_group(sub_child_user, parent))
+
+print(is_user_in_group(sub_child_user, child)) # True
+print(is_user_in_group(sub_child_user, parent)) # True
+print(is_user_in_group(parent, child)) # False
+print(is_user_in_group(parent, sub_child)) # False
 
 not_child = "not_a_child"
-print(is_user_in_group(not_child, parent))
+print(is_user_in_group(not_child, parent)) # False
+print(is_user_in_group(parent, sub_child_user)) # sub_child_user is not the group None
+

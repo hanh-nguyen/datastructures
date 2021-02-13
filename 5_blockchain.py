@@ -44,20 +44,39 @@ class Blockchain:
     def get_tail(self):
         return self.tail
 
-# Test
+# Test 1
 bc = Blockchain()
+print(bc.get_head()) 
+# None
+print(bc.get_tail())
+# None
+
+# Test 2
 bc.append(9)
 bc.append(5)
 print(bc.get_head()) 
 # Data: 9
-# Timestamp: 2021-02-06 23:58:40.291380
-# Hash: 1503044ebfa693cfa7d763c38f4ecedeb14e8c97284c5be825085073c5f98c94
+# Timestamp: 2021-02-13 11:55:51.918102
+# Hash: 7ed6f59eb0290bc014f07d7cb8962e41b034b2af1ca30c187248a14520d1570a
 # PrevHash: 0
 print(bc.get_tail())
 # Data: 5
-# Timestamp: 2021-02-06 23:58:40.291409
-# Hash: 1bccb31fd4c7e166b21ac6a5a9d0e5496aeb260eadcacbecf073471bf3614b28
-# PrevHash: 1503044ebfa693cfa7d763c38f4ecedeb14e8c97284c5be825085073c5f98c94
+# Timestamp: 2021-02-13 11:55:51.918429
+# Hash: 5c311961fb2db40f0c1bf4e1606c4e7ae1f84ff2c0594b0bb6a3eeef3b67f38e
+# PrevHash: 7ed6f59eb0290bc014f07d7cb8962e41b034b2af1ca30c187248a14520d1570a
+
+# Test 3
+bc.append("A")   
+print(bc.get_head())  
+# Data: 9
+# Timestamp: 2021-02-13 11:55:51.918102
+# Hash: 7ed6f59eb0290bc014f07d7cb8962e41b034b2af1ca30c187248a14520d1570a
+# PrevHash: 0
+print(bc.get_tail())   
+# Data: A
+# Timestamp: 2021-02-13 11:55:51.918501
+# Hash: e8a4b810d812f786626374bdb3dd69d6c08012af24a6126ae1614fb58b1f135a
+# PrevHash: 5c311961fb2db40f0c1bf4e1606c4e7ae1f84ff2c0594b0bb6a3eeef3b67f38e 
 
 
 

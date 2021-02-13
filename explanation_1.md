@@ -13,4 +13,6 @@ However, when the cache memory reaches its limit, we need to remove the least re
 2. If we use a dictionary, the deletion and addition will take O(1).
 So the worst case for `set()` operation runtime is O(n) but the average case is O(1)
 
-Therefore, dictionary is a good data structure for the cache and the recency tracking.
+Therefore, dictionary is a good data structure for the cache and the recency tracking. 
+
+**Space complexity** is 0(n) for n is the cache capcity.

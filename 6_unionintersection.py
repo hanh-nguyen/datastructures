@@ -21,7 +21,6 @@ class LinkedList:
 
 
     def append(self, value):
-
         if self.head is None:
             self.head = Node(value)
             return
@@ -29,7 +28,6 @@ class LinkedList:
         node = self.head
         while node.next:
             node = node.next
-
         node.next = Node(value)
 
     def size(self):
@@ -38,7 +36,6 @@ class LinkedList:
         while node:
             size += 1
             node = node.next
-
         return size
 
 def union(llist_1, llist_2):
@@ -65,7 +62,8 @@ def intersection(llist_1, llist_2):
         node_1 = node_1.next
     node_2 = llist_2.head
     while node_2:
-        intersect[node_2.value].append(2)
+        if 2 not in intersect[node_2.value]:
+            intersect[node_2.value].append(2)
         node_2 = node_2.next
     intersectll = LinkedList()
     for key, value in intersect.items():
@@ -74,7 +72,7 @@ def intersection(llist_1, llist_2):
     return intersectll
 
 # Test 1
-
+print("Test 1")
 linked_list_1 = LinkedList()
 linked_list_2 = LinkedList()
 
@@ -90,39 +88,68 @@ for i in element_2:
 print (union(linked_list_1,linked_list_2))
 # 32 -> 65 -> 2 -> 35 -> 3 -> 4 -> 6 -> 1 -> 9 -> 11 -> 21 -> 
 print (intersection(linked_list_1,linked_list_2))
-# 4 -> 21 -> 
-
+# 4 -> 6 -> 21 ->
 
 # Test 2
+print("Test 2")
 
-linked_list_3 = LinkedList()
-linked_list_4 = LinkedList()
+linked_list_1 = LinkedList()
+linked_list_2 = LinkedList()
 
 element_1 = [3,2,4,35,6,65,6,4,3,23]
 element_2 = [1,7,8,9,11,21,1]
 
 for i in element_1:
-    linked_list_3.append(i)
+    linked_list_1.append(i)
 
 for i in element_2:
-    linked_list_4.append(i)
+    linked_list_2.append(i)
 
-print (union(linked_list_3,linked_list_4))
+print (union(linked_list_1,linked_list_2))
 # 65 -> 2 -> 35 -> 3 -> 4 -> 6 -> 1 -> 7 -> 8 -> 9 -> 11 -> 21 -> 23 -> 
-print (intersection(linked_list_3,linked_list_4))
+print (intersection(linked_list_1,linked_list_2))
 # Nothing printed because they do not overlap
 
 # Test 3
-
-linked_list_5 = LinkedList()
-linked_list_6 = LinkedList()
+print("Test 3")
+linked_list_1 = LinkedList()
+linked_list_2 = LinkedList()
 
 element_1 = [1,11,21,1]
 
 for i in element_1:
-    linked_list_5.append(i)
+    linked_list_1.append(i)
 
-print (union(linked_list_5,linked_list_6))
+print (union(linked_list_1,linked_list_2))
 # 1 -> 11 -> 21 ->
-print (intersection(linked_list_5,linked_list_6))
+print (intersection(linked_list_1,linked_list_2))
 # Nothing printed because they do not overlap
+
+# Test 4
+print("Test 4")
+linked_list_1 = LinkedList()
+linked_list_2 = LinkedList()
+
+print (union(linked_list_1,linked_list_2))
+# Nothing printed because both are empty linked lists
+print (intersection(linked_list_1,linked_list_2))
+# Nothing printed because they do not overlap
+
+# Test 5
+print("Test 5")
+linked_list_1 = LinkedList()
+linked_list_2 = LinkedList()
+
+element_1 = [1]
+element_2 = [1,1]
+
+for i in element_1:
+    linked_list_1.append(i)
+
+for i in element_2:
+    linked_list_2.append(i)
+
+print (union(linked_list_1,linked_list_2))
+# 1 -> 
+print (intersection(linked_list_1,linked_list_2))
+# 1 -> 

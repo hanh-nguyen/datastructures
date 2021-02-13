@@ -38,8 +38,10 @@ def _get_huffman_code(node, s, d):
 
 
 def huffman_decoding(data,tree):
-    result = ""
+    if tree.size() == 0: return ''
     node = tree.get_root()
+    if data == '': return node.char * node.value
+    result = ""
     for digit in data:
         if digit == '0':
             node = node.left
@@ -160,8 +162,10 @@ def testing(example):
     print ("The content of the data is: {}\n".format(example))
 
     encoded_data, tree = huffman_encoding(example)
-
-    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    if encoded_data != '':
+        print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    else:
+        print ("The size of the encoded data is: 0\n")
     print ("The content of the encoded data is: {}\n".format(encoded_data))
 
     decoded_data = huffman_decoding(encoded_data, tree)
@@ -177,4 +181,13 @@ if __name__ == "__main__":
     testing(example)
 
     example = "((ABCXYZ)"
+    testing(example)
+
+    example = "A"
+    testing(example)
+
+    example = "bbbbbb"
+    testing(example)
+
+    example = ""
     testing(example)

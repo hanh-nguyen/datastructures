@@ -1,1 +1,1 @@
-We use linked list to implement a block chain. Appending a block to a block chain takes O(1) because we keep track of the tail.
+We use linked list to implement a block chain because block chain is a sequential chain of records, similar to a linked list. **time complexity** to append one block to a block chain takes O(1) because we keep track of the tail. **space complexity** to append one block to a block chain also takes O(1)

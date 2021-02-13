@@ -37,3 +37,4 @@ print(find_files('.h', 'testdir')) # ['testdir/subdir3/subsubdir1/b.h', 'testdir
 print(find_files('.c', '')) # Path does not exist []
 print(find_files('.c', 'testdir/subdir3')) # ['testdir/subdir3/subsubdir1/b.c']
 print(find_files('.c', 'testdir/subdir9')) # Path does not exist []
+print(find_files('.m', 'testdir')) # []

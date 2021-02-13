@@ -46,7 +46,7 @@ our_cache.set(2, 2)
 print(our_cache.get(1))       # returns -1
 print(our_cache.get(2))       # return 2
 
-# Test 2
+# Test 3
 our_cache = LRU_Cache(0)      # Capacity should be greater than 0. Setting to 1
 our_cache.set(1, 1)
 our_cache.set(2, 2)

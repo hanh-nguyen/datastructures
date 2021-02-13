@@ -7,7 +7,6 @@ class Node:
     def __repr__(self):
         return str(self.value)
 
-
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -57,19 +56,6 @@ def union(llist_1, llist_2):
         unionll.append(item)
     return unionll
 
-"""Run time: 
-Worst case complexity: O((a+b)**2)
-Algorithm:
-Let call the lengths of llist_1 and llist_2 are a & b
-initialize an empty set: O(1)
-loop through llist_1 and add each node value in the set: O(a*1) = O(a)
-loop through llist_2 and add each node value in the set: O(b*1) = O(b)
-initialize an empty linked list: O(1)
-loop through the set, which is O(a+b) 
-    and append each item to the linked list, appending requiring go through the entire linked list to the end: O(a+b),
-    so the total run time is O((a+b)**2)
-    if we design the append method to add item at the linked list head, the run time would be just O(a+b)
-"""
 
 def intersection(llist_1, llist_2):
     intersect = defaultdict(list)
@@ -86,20 +72,6 @@ def intersection(llist_1, llist_2):
         if value == [1, 2]:
             intersectll.append(key)
     return intersectll
-
-"""Run time: 
-Worst case complexity: O(min(a,b)**2) 
-Algorithm:
-Let call the lengths of llist_1 and llist_2 are a & b
-initialize an empty dictionary: O(1)
-loop through llist_1 and add each node in the dictionary: O(a*1) = O(a)
-loop through llist_2 and add each node in the dictionary: O(b*1) = O(b)
-initialize an empty linked list: O(1)
-loop through the dictionary, which is O(min(a,b)) 
-    and append each item to the linked list, appending requiring go through the entire linked list to the end: O(min(a,b)),
-    so the total run time is O(min(a,b)**2) 
-    if we design the append method to add item at the linked list head, the run time would be just O(min(a,b)) 
-"""
 
 # Test 1
 

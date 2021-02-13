@@ -1,0 +1,1 @@
+We use linked list to implement a block chain. Appending a block to a block chain takes O(1) because we keep track of the tail.
